@@ -1,0 +1,382 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 77;
+	objects = {
+
+/* Begin PBXFileReference section */
+		ECCD6C4E2F8F6FCC00F27B20 /* iOSApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = iOSApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
+/* End PBXFileReference section */
+
+/* Begin PBXFileSystemSynchronizedRootGroup section */
+		ECCD6C502F8F6FCC00F27B20 /* iOSApp */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			path = iOSApp;
+			sourceTree = "<group>";
+		};
+/* End PBXFileSystemSynchronizedRootGroup section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		ECCD6C4B2F8F6FCC00F27B20 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		ECCD6C452F8F6FCC00F27B20 = {
+			isa = PBXGroup;
+			children = (
+				ECCD6C502F8F6FCC00F27B20 /* iOSApp */,
+				ECCD6C4F2F8F6FCC00F27B20 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		ECCD6C4F2F8F6FCC00F27B20 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				ECCD6C4E2F8F6FCC00F27B20 /* iOSApp.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		ECCD6C4D2F8F6FCC00F27B20 /* iOSApp */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = ECCD6C592F8F6FD600F27B20 /* Build configuration list for PBXNativeTarget "iOSApp" */;
+			buildPhases = (
+				ECCDB1B42F8FB98600F27B20 /* ShellScript */,
+				ECCD6C4A2F8F6FCC00F27B20 /* Sources */,
+				ECCD6C4B2F8F6FCC00F27B20 /* Frameworks */,
+				ECCD6C4C2F8F6FCC00F27B20 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			fileSystemSynchronizedGroups = (
+				ECCD6C502F8F6FCC00F27B20 /* iOSApp */,
+			);
+			name = iOSApp;
+			packageProductDependencies = (
+			);
+			productName = iOSApp;
+			productReference = ECCD6C4E2F8F6FCC00F27B20 /* iOSApp.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		ECCD6C462F8F6FCC00F27B20 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = 1;
+				LastSwiftUpdateCheck = 2620;
+				LastUpgradeCheck = 2620;
+				TargetAttributes = {
+					ECCD6C4D2F8F6FCC00F27B20 = {
+						CreatedOnToolsVersion = 26.2;
+					};
+				};
+			};
+			buildConfigurationList = ECCD6C492F8F6FCC00F27B20 /* Build configuration list for PBXProject "iOSApp" */;
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = ECCD6C452F8F6FCC00F27B20;
+			minimizedProjectReferenceProxies = 1;
+			preferredProjectObjectVersion = 77;
+			productRefGroup = ECCD6C4F2F8F6FCC00F27B20 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				ECCD6C4D2F8F6FCC00F27B20 /* iOSApp */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		ECCD6C4C2F8F6FCC00F27B20 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		ECCDB1B42F8FB98600F27B20 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "#!/bin/bash\n# Build phase script - Optimized for team use and CI\nset -e\n\nif [ \"YES\" = \"${OVERRIDE_KOTLIN_BUILD_IDE_SUPPORTED:-}\" ] || [ \"YES\" = \"${SKIP_KMP_BUILD:-}\" ]; then\n  echo \"Skipping Gradle build task invocation due to OVERRIDE_KOTLIN_BUILD_IDE_SUPPORTED environment variable set to \\\"YES\\\"\"\n  exit 0\nfi\n\ncd \"$SRCROOT/..\"\n\n# Optional: override JVM memory if you hit OutOfMemoryError (e.g. on iOS nightly).\n# - GRADLE_OPTS: Gradle daemon heap (e.g. GRADLE_OPTS=\"-Xmx12g\")\n# - KOTLIN_DAEMON_JVM_ARGS: Kotlin compiler daemon heap (passed via -D below)\n# - In-process fallback: set KOTLIN_COMPILER_IN_PROCESS=1 and GRADLE_OPTS=\"-Xmx16g\" to run Kotlin in Gradle JVM (single process, one big heap)\n[ -n \"${GRADLE_OPTS:-}\" ] && export GRADLE_OPTS\n\n# Environment variables required by :shared:embedAndSignAppleFrameworkForXcode\nREQUIRED_ENV_VARS=(\n  \"CONFIGURATION\"\n  \"SDK_NAME\"\n  \"ARCHS\"\n  \"FRAMEWORK_SEARCH_PATHS\"\n  \"BUILT_PRODUCTS_DIR\"\n  \"TARGET_BUILD_DIR\"\n)\n\necho \"Required env vars for :shared:embedAndSignAppleFrameworkForXcode\"\nfor VAR_NAME in \"${REQUIRED_ENV_VARS[@]}\"; do\n  VAR_VALUE=\"${!VAR_NAME:-}\"\n  if [ -z \"$VAR_VALUE\" ]; then\n    echo \"  ${VAR_NAME}=\"\n  else\n    echo \"  ${VAR_NAME}=${VAR_VALUE}\"\n  fi\ndone\n\n# Determine optimal worker count\n# Allow manual override via GRADLE_MAX_WORKERS environment variable\nif [ -n \"${GRADLE_MAX_WORKERS:-}\" ]; then\n  MAX_WORKERS=\"${GRADLE_MAX_WORKERS}\"\n  echo \"Using manual override: ${MAX_WORKERS} workers\"\nelse\n  # Auto-detect CPU cores\n  if command -v sysctl >/dev/null 2>&1; then\n    # macOS\n    TOTAL_CORES=\"$(sysctl -n hw.ncpu)\"\n  elif command -v nproc >/dev/null 2>&1; then\n    # Linux (if ever needed)\n    TOTAL_CORES=\"$(nproc)\"\n  else\n    # Fallback to conservative default\n    TOTAL_CORES=4\n  fi\n  \n  # Use ~90% of cores (rounded down), clamped to a minimum of 2 and a maximum of 8 for iOS\n  # (lower cap reduces parallel Kotlin/Native compilation and avoids Java heap OOM).\n  MAX_WORKERS=$(( TOTAL_CORES * 9 / 10 ))\n  [ \"$MAX_WORKERS\" -lt 2 ] && MAX_WORKERS=2\n  [ \"$MAX_WORKERS\" -gt 8 ] && MAX_WORKERS=8\n  \n  echo \"Auto-detected ${TOTAL_CORES} cores, using ${MAX_WORKERS} workers\"\nfi\n\necho \"Generating KMP framework for iOS\"\n\n# Optional Kotlin daemon heap override or in-process compiler (reduces OOM by using single JVM)\nKOTLIN_OPTS=()\nif [ -n \"${KOTLIN_COMPILER_IN_PROCESS:-}\" ]; then\n  KOTLIN_OPTS=(-Dkotlin.compiler.execution.strategy=in-process)\n  echo \"Using Kotlin compiler in-process (set GRADLE_OPTS e.g. -Xmx16g for heap)\"\nelif [ -n \"${KOTLIN_DAEMON_JVM_ARGS:-}\" ]; then\n  KOTLIN_OPTS=(-Dkotlin.daemon.jvmargs=\"${KOTLIN_DAEMON_JVM_ARGS}\")\n  echo \"Using Kotlin daemon JVM args override: ${KOTLIN_DAEMON_JVM_ARGS}\"\nfi\n\n# Optional: set NO_KMP_BUILD_CACHE=1 in the Xcode scheme Environment Variables if the embedded\n# Shared.framework still looks stale after editing shared/ (disables Gradle build cache + Kotlin incremental for this run).\nGRADLE_CACHE_FLAGS=\"--build-cache -Dorg.gradle.caching=true -Dkotlin.incremental=true -Dkotlin.incremental.native=true\"\nif [ \"${NO_KMP_BUILD_CACHE:-}\" = \"1\" ]; then\n  echo \"NO_KMP_BUILD_CACHE=1: disabling Gradle build cache and Kotlin incremental for this embed task\"\n  GRADLE_CACHE_FLAGS=\"--no-build-cache -Dorg.gradle.caching=false -Dkotlin.incremental=false -Dkotlin.incremental.native=false\"\nfi\n\n# Optimized Gradle flags for faster iOS builds\n./gradlew :shared:embedAndSignAppleFrameworkForXcode \\\n  \"${KOTLIN_OPTS[@]}\" \\\n  $GRADLE_CACHE_FLAGS \\\n  --parallel \\\n  --max-workers=\"${MAX_WORKERS}\" \\\n  -Dorg.gradle.parallel=true \\\n  -Dorg.gradle.daemon=true\n";
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		ECCD6C4A2F8F6FCC00F27B20 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin XCBuildConfiguration section */
+		ECCD6C572F8F6FD600F27B20 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEVELOPMENT_TEAM = 2DL5PK9VAC;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 26.2;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "DEBUG $(inherited)";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		ECCD6C582F8F6FD600F27B20 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DEVELOPMENT_TEAM = 2DL5PK9VAC;
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 26.2;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		ECCD6C5A2F8F6FD600F27B20 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 2DL5PK9VAC;
+				ENABLE_PREVIEWS = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = NO;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(SRCROOT)/../shared/build/bin/iosSimulatorArm64/debugFramework",
+					"$(SRCROOT)/../shared/build/bin/iosArm64/debugFramework",
+				);
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "$(SRCROOT)/SupportingFiles/ComposeRequiredKeys.plist";
+				INFOPLIST_KEY_CFBundleDisplayName = "KMP Meetup";
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				OTHER_LDFLAGS = (
+					"$(inherited)",
+					"-framework",
+					Shared,
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.justinasKristopaitis.iOSApp;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				STRING_CATALOG_GENERATE_SYMBOLS = YES;
+				SWIFT_APPROACHABLE_CONCURRENCY = NO;
+				SWIFT_DEFAULT_ACTOR_ISOLATION = MainActor;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		ECCD6C5B2F8F6FD600F27B20 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 2DL5PK9VAC;
+				ENABLE_PREVIEWS = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = NO;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(SRCROOT)/../shared/build/bin/iosSimulatorArm64/releaseFramework",
+					"$(SRCROOT)/../shared/build/bin/iosArm64/releaseFramework",
+				);
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "$(SRCROOT)/SupportingFiles/ComposeRequiredKeys.plist";
+				INFOPLIST_KEY_CFBundleDisplayName = "KMP Meetup";
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				OTHER_LDFLAGS = (
+					"$(inherited)",
+					"-framework",
+					Shared,
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.justinasKristopaitis.iOSApp;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				STRING_CATALOG_GENERATE_SYMBOLS = YES;
+				SWIFT_APPROACHABLE_CONCURRENCY = NO;
+				SWIFT_DEFAULT_ACTOR_ISOLATION = MainActor;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		ECCD6C492F8F6FCC00F27B20 /* Build configuration list for PBXProject "iOSApp" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				ECCD6C572F8F6FD600F27B20 /* Debug */,
+				ECCD6C582F8F6FD600F27B20 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		ECCD6C592F8F6FD600F27B20 /* Build configuration list for PBXNativeTarget "iOSApp" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				ECCD6C5A2F8F6FD600F27B20 /* Debug */,
+				ECCD6C5B2F8F6FD600F27B20 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = ECCD6C462F8F6FCC00F27B20 /* Project object */;
+}
